@@ -393,6 +393,6 @@ class MediableTest extends TestCase
 
         $query = $mediable->media()->unordered()->toSql();
 
-        $this->assertNotRegExp('/order by `order`/i', $query);
+        $this->assertNotRegExp('/order by `upload_order`/i', $query);
     }
 }

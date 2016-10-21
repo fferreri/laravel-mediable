@@ -452,7 +452,7 @@ trait Mediable
     {
         $tags = (array) $tags;
         $result = $this->media()->newPivotStatement()
-            ->selectRaw('`tag`, max(`order`) as aggregate')
+            ->selectRaw('tag, max(upload_order) as aggregate')
             ->where('mediable_type', $this->getMorphClass())
             ->where('mediable_id', $this->getKey())
             ->whereIn('tag', $tags)
