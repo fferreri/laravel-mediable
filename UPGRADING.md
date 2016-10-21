@@ -5,7 +5,7 @@
 You need to add an order column to the mediables table.
 
 ```php
-$table->integer('order')->unsigned()->index();
+$table->integer('upload_order')->unsigned()->index();
 ```
 
 A handful of methods have been renamed on the `MediaUploader` class.

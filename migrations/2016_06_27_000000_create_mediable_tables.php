@@ -34,12 +34,12 @@ class CreateMediableTables extends Migration
             $table->string('mediable_type');
             $table->integer('mediable_id')->unsigned();
             $table->string('tag');
-            $table->integer('order')->unsigned();
+            $table->integer('upload_order')->unsigned();
 
             $table->primary(['media_id', 'mediable_type', 'mediable_id', 'tag']);
             $table->index(['mediable_id', 'mediable_type']);
             $table->index('tag');
-            $table->index('order');
+            $table->index('upload_order');
             $table->foreign('media_id')->references('id')->on('media')
                 ->onDelete('cascade');
         });

@@ -44,8 +44,8 @@ trait Mediable
     public function media()
     {
         return $this->morphToMany(config('mediable.model'), 'mediable')
-            ->withPivot('tag', 'order')
-            ->orderBy('order');
+            ->withPivot('tag', 'upload_order')
+            ->orderBy('upload_order');
     }
 
     /**
@@ -180,7 +180,7 @@ trait Mediable
             foreach ($ids as $id) {
                 $attach[$id] = [
                     'tag' => $tag,
-                    'order' => ++$increments[$tag],
+                    'upload_order' => ++$increments[$tag],
                 ];
             }
             $this->media()->attach($attach);
